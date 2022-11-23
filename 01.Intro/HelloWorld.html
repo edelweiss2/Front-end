@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  <!-- 웹페이지 사용언어를 구글 검색엔진에 제공 -->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">          <!-- 정보제공 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 -->
     <title>Hello World</title>
+    <script>
+        function a(){
+            alert("경고창을 띄웁니다.");
+        }
+    </script>
+    <script src="hello.js"></script>
+    <style>
+        body {
+            margin-left: 50px; margin-top: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="hello.css">
 </head>
-<body>
+<body onload="b()">
     <h1>Hello World</h1>
+    <hr>
+    <p>하나의 문단입니다.</p>
+    <h3 title="header">H3 태그</h3>
+    <img src="../img/cat.jpg" alt="고양이">
+    <!-- 주석 Alt + Shift + A // Ctrl + / -->
 </body>
 </html>
