@@ -1,10 +1,10 @@
 # Front-end
 
-HTML5
+### HTML5
 
-CSS3
+### CSS3
 
-JS
+### JS
 
-JQUERY
+### JQUERY
 
