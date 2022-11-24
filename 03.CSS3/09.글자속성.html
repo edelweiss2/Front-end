@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글자 속성</title>
+    <title>글자 속성</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <style>
         .a { font-size: 32px;}
         .b { font-size: 2em;}
@@ -12,10 +15,14 @@
         .d { font-size: small;}
         .arial {font-family: Arial;}
         .times {font-family: 'Times New Roman', Times, serif;}   
-        .gibbeun {font-family: GiBbeumBarkEum;}
+        .gibbeun {font-family: GiBbeumBarkEum; font-size: 32px;}
         @font-face {
             font-family: 'GiBbeumBarkEum';
             src: url(../img/나눔손글씨\ 기쁨밝음.ttf);
+        }
+        .single {
+            font-family: 'Single Day', cursive;
+            font-size: 32px;
         }
     </style>
     
@@ -28,6 +35,8 @@
     <p class="b times">Lorem Ipsum 2em</p>
     <p class="c gibbeun">Lorem Ipsum large</p>
     <p class="d">Lorem Ipsum small</p>
+    <p class="single">Lorem Ipsum small</p>
+
 
 
 </body>
