@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공약수</title>
+    <script>
+        function cal() {
+            const aTag = Number(document.getElementById('a').value);
+            const bTag = Number(document.getElementById('b').value);
+            const resTag = document.getElementById('result');
+
+            let commonDivisors = [];
+            for (let i = 1; i <= ((aTag < bTag) ? aTag : bTag); i++) {
+                if (aTag % i == 0 && bTag % i == 0) {
+                    commonDivisors.push(i);
+                }
+            }
+            resTag.innerHTML = `공약수는 [${commonDivisors}]`;
+        }
+    </script>
+
+</head>
+
+<body style="margin: 50px;">
+    <input type="text" id="a" placeholder="양의 정수를 입력하세요"><br>
+    <input type="text" id="b" placeholder="양의 정수를 입력하세요"><br>
+    <button onclick="cal()">공약수 계산</button>
+    <p id="result"></p>
+
+</body>
+
+</html>

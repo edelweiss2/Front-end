@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>완전수</title>
+    <script>
+        function perNum() {
+
+        }
+    </script>
+</head>
+
+<body onload="perNum()" style="margin: 50px;">
+    <script>
+        for (let num = 2; num <= 10000; num++) {
+            let divisor = [];
+            for (let i = 1; i < num; i++) {
+                if (num % i == 0) {
+                    divisor.push(i);
+                }
+            }
+            let sum = 0;
+            for (div of divisor) {
+                sum += div;
+            }
+            if (num == sum) {
+                document.write(`${num}: `);
+                document.write(divisor.toString());
+                document.write('<br>');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
