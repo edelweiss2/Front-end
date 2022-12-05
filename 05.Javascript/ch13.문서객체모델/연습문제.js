@@ -1,5 +1,5 @@
 function answer1() {
-    let num1Node = document.getElementById('num1');
+    let num1Node = document.getElementById('num1'); 
     let num2Node = document.getElementById('num2');
     let num1 = parseInt(num1Node.value);
     let num2 = parseInt(num2Node.value);
@@ -11,6 +11,7 @@ function answer1() {
     for (let i = num1; i <= num2; i++) {
         powerArray.push(Math.pow(2, i));
     }
+
     let resNode = document.getElementById('result1');
     resNode.innerHTML = '결과: ' + powerArray;
     resNode.style.color = 'blue';
@@ -71,3 +72,40 @@ function answer4() {
     document.getElementById('model').innerHTML = model;
     document.getElementById('input').innerHTML = cars;
 }
+
+function twoDigit(num) {
+    return (num < 10) ? '0'+num : String(num);  
+}
+function myDatetime(date) {
+    return `${date.getFullYear()}-${twoDigit(date.getMonth()+1)}-${twoDigit(date.getDate())} ` +
+            `${twoDigit(date.getHours())}:${twoDigit(date.getMinutes())}:${twoDigit(date.getSeconds())}`
+}
+
+$(document).ready(function() {    
+        setInterval(() => {
+            const now = new Date();
+            const currDay = myDatetime(now).substring(0,10);
+            const weekday = '일월화수목금토'.split('')[now.getDay()];
+            const currentDay = `${currDay}(${weekday})`;
+            
+            const currentTime = myDatetime(now).substring(11);
+            
+            $('#date').text(currentDay);
+            $('#time').text(currentTime);
+
+            const mapping = [0, 1, 3, 4, 6, 7];
+            $('.number').each(function(index, element) {
+                $(this).attr('src',  `../../img/${currentTime[mapping[index]]}.svg`);
+            });
+
+            
+        //     $('#t1').attr('src',  `../../img/${currentTime[0]}.svg`);
+        //     $('#t2').attr('src',  `../../img/${currentTime[1]}.svg`);
+        //     $('#t3').attr('src',  `../../img/${currentTime[3]}.svg`);
+        //     $('#t4').attr('src',  `../../img/${currentTime[4]}.svg`);
+        //     $('#t5').attr('src',  `../../img/${currentTime[6]}.svg`);
+        //     $('#t6').attr('src',  `../../img/${currentTime[7]}.svg`);
+        // }, 1000);
+    
+ });
+})

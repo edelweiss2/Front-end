@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -13,18 +14,16 @@
     결과는 5 입니다.
     <script>
         var count = 3;
-        const show = document.getElementById('show');
         function disp(num) {
-            let img = document.createElement('img');
-            img.setAttribute('src', '../../img/metro' + num + '.svg');
-            img.setAttribute('width', '1200');
-            img.setAttribute('id', 'second');
-            img.setAttribute('class', 'm-5');
-            show.append(img);
+            $('<img></img')
+                .attr('src', 'src', '../../img/'+ num +'.svg' )
+                .attr('width', '1000')
+                .attr('id', 'second')
+                .css('margin', '40px')
+                .appendTo('#show');        
         }
         function hide() {
-            let sec = document.getElementById('second');
-            show.removeChild(sec);
+            $('#second').remove();
         }
         function countDown() {
             disp(count--);
@@ -37,7 +36,7 @@
                 clearInterval(interval);
             }, 3000);
         }
-        window.onload = countDown;
+        $(document).ready(countDown);
     </script>
 </body>
 
