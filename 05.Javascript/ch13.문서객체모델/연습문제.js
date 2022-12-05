@@ -66,6 +66,7 @@ function answer4() {
         return m.join(' ');
     }) */
     const model = cars.map(x => x.split(' ').slice(1).join(' '));
+    
     document.getElementById('manuf').innerHTML = manu;
     document.getElementById('model').innerHTML = model;
     document.getElementById('input').innerHTML = cars;
