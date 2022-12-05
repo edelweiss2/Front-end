@@ -50,3 +50,38 @@ function answer4() {
     $('#manuf').text(manu);
     $('#model').text(model);
 }
+
+function twoDigit(num) {
+    return (num < 10) ? '0' + num : String(num);
+}
+function myDatetime(date) {
+    return `${date.getFullYear()}-${twoDigit(date.getMonth() + 1)}-${twoDigit(date.getDate())} ` +
+        `${twoDigit(date.getHours())}:${twoDigit(date.getMinutes())}:${twoDigit(date.getSeconds())}`
+}
+
+$(document).ready(function() {
+    setInterval(() => {
+        const now = new Date();
+        const currDay = myDatetime(now).substring(0, 10);
+        const weekday = '일월화수목금토'.split('')[now.getDay()];
+        const currentDay = `${currDay}(${weekday})`;
+
+        const currentTime = myDatetime(now).substring(11);
+
+        $('#date').text(currentDay);
+        $('#time').text(currentTime);
+
+        const mapping = [0, 1, 3, 4, 6, 7];
+        $('.number').each(function (index, element) {
+            $(this).attr('src', `../../img/${currentTime[mapping[index]]}.svg`);
+        });
+
+        //     $('#t1').attr('src',  `../../img/${currentTime[0]}.svg`);
+        //     $('#t2').attr('src',  `../../img/${currentTime[1]}.svg`);
+        //     $('#t3').attr('src',  `../../img/${currentTime[3]}.svg`);
+        //     $('#t4').attr('src',  `../../img/${currentTime[4]}.svg`);
+        //     $('#t5').attr('src',  `../../img/${currentTime[6]}.svg`);
+        //     $('#t6').attr('src',  `../../img/${currentTime[7]}.svg`);
+
+    }, 1000);
+});
