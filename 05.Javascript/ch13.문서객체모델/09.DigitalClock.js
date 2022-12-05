@@ -13,3 +13,5 @@ window.onload = function () {
         document.getElementById('time').innerHTML = myDateTime(now).substring(11);
     }, 1000);                                           //1초마다 Date
 }
+
+
