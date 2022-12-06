@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>이벤트 제거</title>
+    <script>
+        $(document).ready(function() {
+            const handler = function(e){
+                $('<h1></h1>').text($(this).text())
+                              .click(handler)
+                              .appendTo('body');
+                // $(this).off('click', handler);
+                $(this).off();    //   모든것을 다 지움              
+            };
+            $('h1').click(handler);
+        });
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h1>새로 생긴 데이터만 이벤트 발생</h1>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>이벤트 발생시 객체생성</title>
+    <script>
+        $(document).ready(function() {
+            $('h1').on('click', function(e) {
+                $('<h1>,</h1>').text($(this).text()).appendTo('body');
+            });
+            const handler = function(e) {
+                $('<h2></h2>').text('모든 줄에서 헤더생성')
+                              .on('click', handler)
+                              .appendTo('body');
+            };
+            $('h2').on('click', handler);
+        });
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h1>첫번째 Header만 객체 생성</h1>
+    <h2>Header 2</h2>    
+</body>
+</html>
