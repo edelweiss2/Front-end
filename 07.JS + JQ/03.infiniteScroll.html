@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Document</title>
+    <script>
+        $(document).ready(function() {
+            const appendDocument = function() {
+                for (let i = 0; i<20; i++){
+                    $('<h1></h1>').text('infinite Scroll').appendTo('body');
+                }
+            }
+            appendDocument();
+
+            // 이벤트 연결
+            $(window).scroll(function(e) {
+                let scrollHeight = $(window).scrollTop() + $(window).height();
+                let documentHeight = $(document).height();
+
+                if(scrollHeight == documentHeight) {
+                    appendDocument();
+                }
+            })
+        });
+    </script>
 </head>
 <body>
     
