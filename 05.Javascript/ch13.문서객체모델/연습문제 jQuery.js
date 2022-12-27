@@ -42,6 +42,7 @@ var cars = [];
 function answer4_add() {    
     cars.push($('#car').val());
 }
+
 function answer4() {
     const manu = cars.map(x => x.split(' ')[0]);
     const model = cars.map(x => x.split(' ').slice(1).join(' '));    
