@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>여러개 마커 표시하기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="map" style="width:35%;height:500px;margin:40px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9829722c486e4c2d4f6d8477a49a1129&libraries=services,clusterer,drawing"></script>
+<script>
+var mapContainer = document.getElementById('map');
+var mapOption = {
+    center: new daum.maps.LatLng(37.567411643299266, 127.00568221118185),
+    level: 14
+};  
+
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+var geocoder = new daum.maps.services.Geocoder();
+
+var listData = [];
+<c:forEach items="${mapList}" var="map">
+	listData.push("${map.addr}");
+</c:forEach>
+
+listData.forEach(function(addr, index) {
+    geocoder.addressSearch(addr, function(result, status) {
+        if (status === daum.maps.services.Status.OK) {
+            var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+            var marker = new daum.maps.Marker({
+                map: map,
+                position: coords
+            });            
+        } 
+    });
+});
+
+kakao.maps.event.addListener(map, 'dragend', function() {
+	
+	// 지도의 중심좌표를 얻어옵니다 
+    var dragLatLng = map.getCenter(); 
+	
+    var marker = new daum.maps.Marker({  
+		map: map,
+		position: dragLatLng
+	});
+    
+    this.drawCircle();
+});
+
+//showCircle() {
+//	var num = modules.getValueById('circleRadius');
+	//숫자인지 검사
+//	if(isNaN(num)) {
+//		alert('숫자만 입력해주세요');
+//		return;
+//	}
+//	this.drawCircle(num);
+//}
+
+drawCircle(radius) {
+	// 이전 원을 지도에서 제거
+	circle.setMap(null);
+	
+	var circle = new kakao.maps.Circle({
+		center : new kakao.maps.LatLng(this.dragLatLng.getLat(),this.dragLatLng.getLng()),
+		radius: 1500, // 미터 단위의 원의 반지름입니다 
+	    strokeWeight: 1, // 선의 두께입니다 
+	    strokeColor: '#00a0e9', // 선의 색깔입니다
+	    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	    strokeStyle: 'solid', // 선의 스타일 입니다
+	    fillColor: '#00a0e9', // 채우기 색깔입니다
+	    fillOpacity: 0.1  // 채우기 불투명도 입니다
+	});
+	
+	circle.setMap(map); 
+}
+
+</script>
+</body>
+</html>
