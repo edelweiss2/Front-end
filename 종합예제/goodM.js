@@ -1,34 +1,22 @@
-searchData.forEach(function(addr, index) {
-    geocoder.addressSearch(addr, function(result, status) {
-        if (status === daum.maps.services.Status.OK) {
-            var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 
-            var marker = new daum.maps.Marker({
-                map: map,
-                position: coords
-            });  
-            
-            map.setCenter(coords);
-        } 
+
+function searchPlaces() {
+    searchData.forEach(function(addr, index) {
+        geocoder.addressSearch(addr, function(result, status) {
+            if (status === daum.maps.services.Status.OK) {
+                var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+    
+                var marker = new daum.maps.Marker({
+                    map: map,
+                    position: coords
+                });  
+                
+                map.setCenter(coords);
+            } 
+        });
     });
-});
-
-searchData.forEach(function(addr, index) {
-    geocoder.addressSearch(addr, );
-});
-
-function(result, status) {
-    if (status === daum.maps.services.Status.OK) {
-        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-
-        var marker = new daum.maps.Marker({
-            map: map,
-            position: coords
-        });  
-        
-        map.setCenter(coords);
-    } 
 }
+
 
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
