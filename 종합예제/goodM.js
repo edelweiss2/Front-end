@@ -15,7 +15,7 @@ function searchPlaces() {
             } 
         });
     });
-}
+} 
 
 
 function placesSearchCB(data, status, pagination) {
