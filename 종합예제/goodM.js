@@ -28,7 +28,7 @@ for ( var i=0; i<places.length; i++ ) {
         itemEl.onmouseout =  function () {
             infowindow.close();
         };
-    })(marker, places[i].place_name);
+    })(marker, places[i].place_name); 
 
     fragment.appendChild(itemEl);
 }
