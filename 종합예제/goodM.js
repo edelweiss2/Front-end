@@ -14,7 +14,7 @@ for ( var i=0; i<places.length; i++ ) {
     // mouseout 했을 때는 인포윈도우를 닫습니다
     (function(marker, title) {
         kakao.maps.event.addListener(marker, 'mouseover', function() {
-            displayInfowindow(marker, title);
+            displayInfowindow(marker, title); 
         });
 
         kakao.maps.event.addListener(marker, 'mouseout', function() {
