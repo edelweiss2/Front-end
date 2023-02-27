@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>show modal</button>
+    <dialog>
+        hello i'm modal
+        <form method="dialog">
+            <button>Close</button>
+        </form>
+    </dialog>
+    <script>
+        const button = document.querySelector("button");
+        const dialog = document.querySelector("dialog");
+
+        button.addEventListener("click", () => {
+            dialog.showModal();
+        });
+    </script>
+</body>
+</html>
